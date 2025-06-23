@@ -36,7 +36,7 @@ While this project is currently frontend-only, I plan to expand it into a full-s
 ---
 
 ## 📂 Repository Structure
-
+```
 📂 Project Structure
 ├── 📁 data
 │   ├── candidates.js     # Contains candidate names and rank data
@@ -46,7 +46,7 @@ While this project is currently frontend-only, I plan to expand it into a full-s
 │   ├── styles.css        # Styling for the user interface
 │   └── index.js          # Main JavaScript file containing seat allotment algorithm
 └── seatmatrix.js         # Stores the final seat allotment data for all candidates
-
+```
 
 ## 🤝 Contributions
 
