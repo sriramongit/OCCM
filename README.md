@@ -37,13 +37,16 @@ While this project is currently frontend-only, I plan to expand it into a full-s
 
 ## 📂 Repository Structure
 
-```
-├── index.html       # Main HTML file for the UI
-├── styles.css       # Styling for the user interface
-└── script.js        # JavaScript file for seat allotment logic and dynamic interactions
-```
+📂 Project Structure
+├── 📁 data
+│   ├── candidates.js     # Contains candidate names and rank data
+│   └── courses.js        # Contains course names and seat availability
+├── 📁 frontend
+│   ├── index.html        # Basic structure of the webpage (UI)
+│   ├── styles.css        # Styling for the user interface
+│   └── index.js          # Main JavaScript file containing seat allotment algorithm
+└── seatmatrix.js         # Stores the final seat allotment data for all candidates
 
----
 
 ## 🤝 Contributions
 
