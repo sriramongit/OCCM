@@ -6,7 +6,9 @@
 
 The project demonstrates how seats are allotted to candidates based on their ranks, preferences, and seat availability. The user-friendly interface (UI) will allow users to **customize input data** like candidate names, ranks, and available courses to visualize how the online counseling and seat allotment process works.
 
-While this project is currently frontend-only, I plan to expand it into a full-stack application in the future after I learn backend technologies like Node.js.
+While I am making this project frontend-only, I plan to expand it into a full-stack application in the future after I learn backend technologies like Node.js.
+
+Please note that I have just started working on this project, i have only made the basic rankwise seat alloting algorithm in js till now, but there's still so much of work left. However you can clone this repo, customize the data using javascript and render it on your browser's console to get an idea about how the algorithm works.
 
 
 ## 🚀 Key Features
@@ -65,7 +67,7 @@ If you have ideas for improvements or new features, feel free to open issues or 
 
 ---
 
-If you’d like help with:
+If you’d like to help with:
 
 * Writing additional documentation
 * Designing the UI
