@@ -6,10 +6,8 @@ import { candidates } from "../data/candidates.js";
 //sorting the students rankwise
 let rankwise = candidates.sort((a, b) => a.rank - b.rank);
 
-let matchingCourse = '';
-
 for (let i = 0; i < rankwise.length; i++) {
-  let candidate = rankwise[i];
+  let candidate = rankwise[i]; 
   let choice = Object.values(candidate.choices);
 
   innerloop:
