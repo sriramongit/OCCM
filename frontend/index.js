@@ -5,7 +5,7 @@ const rollNo = document.querySelector('.input-rollno');
 const rank = document.querySelector('.input-rank');
 const choice = document.querySelector('.input-choice');
 
-let branches = [];
+let choices = [];
 
 const addCadidate_btn = document.querySelector('.btn-addCandidate');
 const removeCandidate = document.querySelector('.btn-removeCandidate')
@@ -21,9 +21,9 @@ function validateError(error) {
   if (error === 'empty field error') {
     setTimeout(() => {
       document.querySelector(".error").innerHTML = "";
-    }, 1000);
+    }, 2000);
 
-    document.querySelector(".error").innerHTML = "Enter all fields first";
+    document.querySelector(".error").innerHTML = "Enter all the fields first";
   } else { 
     setTimeout(() => {
       document.querySelector(".success").innerHTML = "";
@@ -37,6 +37,18 @@ function updatePreview() {
   preview_rollno.innerHTML = `Roll No: ${rollNo.value}`;
   preview_rank.innerHTML = `Rank: ${rank.value}`;
   preview_branches.innerHTML = `Choices: ${choice.value.toUpperCase()}`;
+}
+
+function clearDetails() { 
+  name.value = "";
+  rollNo.value = "";
+  rank.value = "";
+  choice.value = "";
+
+  // preview_name.innerHTML = "Name:";
+  // preview_rollno.innerHTML = "Roll No:";
+  // preview_rank.innerHTML = "Rank:";
+  // preview_branches.innerHTML = `Branch:`;
 }
 
 name.addEventListener('input', updatePreview);
@@ -71,25 +83,18 @@ addCadidate_btn.addEventListener('click', () => {
     }
   };
 
+  clearDetails();
+  // candidateCredentials.choices["2"] = "ECE";
   candidates.push(candidateCredentials);
   console.log(candidates);
-
+  // console.log(Object.keys(candidateCredentials.choices).length);
 })
 
 addChoice.addEventListener('click', () => { 
   choice.value = '';
+  
 })
 
-removeCandidate.addEventListener('click', () => { 
-  name.value = '';
-  rollNo.value = '';
-  rank.value = '';
-  choice.value = '';
-
-  preview_name.innerHTML = "Name:";
-  preview_rollno.innerHTML = "Roll No:";
-  preview_rank.innerHTML = "Rank:";
-  preview_branches.innerHTML = `Branch:`;
-})
+removeCandidate.addEventListener('click', clearDetails)
 
 

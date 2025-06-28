@@ -10,7 +10,8 @@ for (let i = 0; i < rankwise.length; i++) {
   let choice = Object.values(candidate.choices);
 
   //iterating through each choice
-  innerloop: for (let j = 0; j < choice.length; j++) {
+  innerloop:
+  for (let j = 0; j < choice.length; j++) {
     //iterating through each course that the college provides
     for (let k = 0; k < courses.length; k++) {
       //check for seats
