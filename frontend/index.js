@@ -1,3 +1,4 @@
+import { candidates } from "../data/candidates.js";
 
 const name = document.querySelector('.input-name');
 const rollNo = document.querySelector('.input-rollno');
@@ -23,17 +24,17 @@ function validateError(error) {
     }, 1000);
 
     document.querySelector(".error").innerHTML = "Enter all fields first";
+    
   }
 }
 
 
-
 addCadidate_btn.addEventListener('click', () => { 
-
   //validating error if fields are empty
   if (name.value === '' || rollNo.value === '' || rank.value === '' || choice.value === '') { 
     const error = 'empty field error';
     validateError(error);
+    return;
   }
 
   preview_name.innerHTML = `Name: ${name.value.toUpperCase()}`
