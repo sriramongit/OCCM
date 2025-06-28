@@ -18,33 +18,66 @@ let addChoice = document.querySelector(".btn-add-choice")
 
 
 function validateError(error) { 
-  if (error === 'empty field error') { 
+  if (error === 'empty field error') {
     setTimeout(() => {
       document.querySelector(".error").innerHTML = "";
     }, 1000);
 
     document.querySelector(".error").innerHTML = "Enter all fields first";
-    
+  } else { 
+    setTimeout(() => {
+      document.querySelector(".success").innerHTML = "";
+    }, 4000);
+    document.querySelector(".success").innerHTML = `Candidate added with ${choice.value.toUpperCase()} as choice 1`;
   }
 }
+
+function updatePreview() {
+  preview_name.innerHTML = `Name: ${name.value.toUpperCase()}`;
+  preview_rollno.innerHTML = `Roll No: ${rollNo.value}`;
+  preview_rank.innerHTML = `Rank: ${rank.value}`;
+  preview_branches.innerHTML = `Choices: ${choice.value.toUpperCase()}`;
+}
+
+name.addEventListener('input', updatePreview);
+rollNo.addEventListener('input', updatePreview);
+rank.addEventListener('input', updatePreview);
+choice.addEventListener('change', updatePreview);
 
 
 addCadidate_btn.addEventListener('click', () => { 
   //validating error if fields are empty
-  if (name.value === '' || rollNo.value === '' || rank.value === '' || choice.value === '') { 
+  if (name.value === '' || rollNo.value === '' || rank.value === '' || choice.value === '') {
     const error = 'empty field error';
     validateError(error);
     return;
+  } else { 
+    const error = 'no error';
+    validateError(error)
   }
 
   preview_name.innerHTML = `Name: ${name.value.toUpperCase()}`
   preview_rollno.innerHTML = `Roll No: ${rollNo.value}`
   preview_rank.innerHTML = `Rank: ${rank.value}`
   preview_branches.innerHTML = `Choices: ${choice.value.toUpperCase()}`
+  
+
+  let candidateCredentials = {
+    name: name.value,
+    roll_no: rollNo.value,
+    rank: rank.value,
+    choices: {
+      1: choice.value,
+    }
+  };
+
+  candidates.push(candidateCredentials);
+  console.log(candidates);
+
 })
 
 addChoice.addEventListener('click', () => { 
-  branches.push(choice.value);
+  choice.value = '';
 })
 
 removeCandidate.addEventListener('click', () => { 

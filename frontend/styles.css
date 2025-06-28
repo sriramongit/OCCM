@@ -27,7 +27,7 @@ a{
 }
 
 .credential-style{
-  color: green;
+  color: rgb(30, 30, 30);
   margin: 10px; 
   margin-left: 0;
 }
@@ -51,6 +51,13 @@ a{
 .error{
   font-family: sans-serif;
   color: red;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.success{
+  font-family: sans-serif;
+  color: green;
   margin-left: 10px;
   margin-top: 10px;
 }
