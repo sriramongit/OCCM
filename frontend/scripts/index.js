@@ -1,4 +1,4 @@
-import { candidates } from "../data/candidates.js";
+import { candidates } from "../../data/candidates.js";
 
 const name = document.querySelector('.input-name');
 const rollNo = document.querySelector('.input-rollno');

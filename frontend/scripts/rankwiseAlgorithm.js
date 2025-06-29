@@ -1,6 +1,6 @@
-import { courses } from "../data/courses.js";
-import { seatMatrix } from "../seatMatrix.js";
-import { candidates } from "../data/candidates.js";
+import { courses } from "../../data/courses.js"
+import { seatMatrix } from "../../seatMatrix.js";
+import { candidates } from "../../data/candidates.js";
 
 //sorting the students rankwise
 let rankwise = candidates.sort((a, b) => a.rank - b.rank);
