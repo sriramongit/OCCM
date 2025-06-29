@@ -14,10 +14,20 @@ let preview_name = document.querySelector('.credential-name');
 let preview_rollno = document.querySelector(".credential-rollno");
 let preview_rank = document.querySelector(".credential-rank");
 let preview_branches = document.querySelector(".credential-branches");
-let addChoice = document.querySelector(".btn-add-choice")
+let addChoice = document.querySelector(".btn-add-choice");
+
+let candidateCredentials = {}; 
 
 
 function validateError(error) { 
+  if (error === 'Choice already exists') { 
+    setTimeout(() => {
+      document.querySelector(".error").innerHTML = "";
+    }, 2000);
+
+    document.querySelector(".error").innerHTML = "Choice already exists!";
+    return;
+  }
   if (error === 'empty field error') {
     setTimeout(() => {
       document.querySelector(".error").innerHTML = "";
@@ -74,7 +84,7 @@ addCadidate_btn.addEventListener('click', () => {
   preview_branches.innerHTML = `Choices: ${choice.value.toUpperCase()}`
   
 
-  let candidateCredentials = {
+   candidateCredentials = {
     name: name.value,
     roll_no: rollNo.value,
     rank: rank.value,
@@ -83,7 +93,6 @@ addCadidate_btn.addEventListener('click', () => {
     }
   };
 
-  clearDetails();
   // candidateCredentials.choices["2"] = "ECE";
   candidates.push(candidateCredentials);
   console.log(candidates);
@@ -91,8 +100,25 @@ addCadidate_btn.addEventListener('click', () => {
 })
 
 addChoice.addEventListener('click', () => { 
+  let key = Object.keys(candidateCredentials.choices);
+  let exists = false;
+
+  for (let i = 0; i < key.length; i++) { 
+    let ch = candidateCredentials.choices[key[i]];
+    if (ch === choice.value) {
+      let error = "Choice already exists";
+      validateError(error);
+      exists = true;
+      break;
+    }
+  }
+
+  if (!exists) {
+    let numChoice = Object.keys(candidateCredentials.choices).length;
+    candidateCredentials.choices[numChoice + 1] = choice.value;
+    console.log(candidates);
+  }
   choice.value = '';
-  
 })
 
 removeCandidate.addEventListener('click', clearDetails)
