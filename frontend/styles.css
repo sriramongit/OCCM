@@ -65,6 +65,7 @@ a{
 .btn-add-choice{
   margin-left: 10px;
   margin-top: 10px;
+  opacity: 0;
 }
 
 .buttons{
@@ -89,7 +90,7 @@ a{
 }
 
 .preview-and-add{
-  margin: 15px 10px 10px 10px;
+  margin: 0px 10px 10px 10px;
 }
 /* .input-field{
     width: 95%;
