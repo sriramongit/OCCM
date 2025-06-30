@@ -174,6 +174,7 @@ addCadidate_btn.addEventListener('click', () => {
   };
 
   candidates.push(candidateCredentials);
+  localStorage.setItem('candidates', JSON.stringify(candidates)); // Save to localStorage
   console.log(candidates);
   addChoice.style.opacity = "1";
 })
@@ -193,8 +194,17 @@ addChoice.addEventListener('click', () => {
   }
 
   if (!exists) {
+    // After adding a choice
     let numChoice = Object.keys(candidateCredentials.choices).length;
     candidateCredentials.choices[numChoice + 1] = choice.value;
+
+    // If candidate is already in the candidates array (by roll_no), update it:
+    let idx = candidates.findIndex(c => c.roll_no === candidateCredentials.roll_no);
+    if (idx !== -1) {
+        candidates[idx] = JSON.parse(JSON.stringify(candidateCredentials));
+        localStorage.setItem('candidates', JSON.stringify(candidates));
+    }
+
     const message = `${choice.value.toUpperCase()} added as Choice ${numChoice + 1}`
     validateError(message);
     console.log(candidates);
@@ -211,7 +221,14 @@ addChoice.addEventListener('click', () => {
 
 })
 
-removeCandidate.addEventListener('click', clearDetails)
+removeCandidate.addEventListener('click', clearDetails);
+
+// Load candidates from localStorage
+let storedCandidates = localStorage.getItem('candidates');
+if (storedCandidates) {
+    candidates.length = 0; // Clear the imported array
+    JSON.parse(storedCandidates).forEach(c => candidates.push(c));
+}
 
 
 
