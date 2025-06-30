@@ -1,10 +1,6 @@
 import { candidates } from "../../data/candidates.js";
 
 
-
-let initial = candidates.length;
-console.log(initial);
-
 export function RenderList() { 
     let listHTML = "";
     candidates.forEach((candidate) => {
@@ -14,7 +10,7 @@ export function RenderList() {
                 <img class="pfp-icon" src="assets/pfp.png" alt="pfp">
             </div>
             <div class="candidate-data">
-                <h2>${candidate.name}</h2>
+                <h2>${candidate.name.toUpperCase()}</h2>
                 <h5 style="margin-bottom: 5px; margin-top: 8px;">Roll No: ${candidate.roll_no}</h5>
                 <h5 style="margin-top: 0px; margin-bottom: 5px;">Rank: ${candidate.rank}</h5>
                 <h5 style="margin-top: 5px; margin-bottom: 0;">
