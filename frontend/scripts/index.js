@@ -156,6 +156,9 @@ addCadidate_btn.addEventListener('click', () => {
   const message = `Candidate added with ${choice.value.toUpperCase()} as choice 1`;
   validateError(message);
 
+
+  //render list on candidate list page on adding the candidate
+
   preview_name.innerHTML = `Name: ${name.value.toUpperCase()}`
   preview_rollno.innerHTML = `Roll No: ${rollNo.value}`
   preview_rank.innerHTML = `Rank: ${rank.value}`
@@ -204,8 +207,11 @@ addChoice.addEventListener('click', () => {
     Branches += `${ch.toUpperCase()} `;
   }
   preview_branches.innerHTML = Branches.trim();
+
+
 })
 
 removeCandidate.addEventListener('click', clearDetails)
+
 
 
